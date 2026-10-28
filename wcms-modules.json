@@ -1,0 +1,13 @@
+{
+    "version": 1,
+    "plugins": {
+        "wondercms-privatus-analytics": {
+            "name": "Privatus Analytics",
+            "repo": "https://github.com/Privatus-Analytics/wondercms-privatus-analytics/tree/main",
+            "zip": "https://github.com/Privatus-Analytics/wondercms-privatus-analytics/archive/main.zip",
+            "summary": "See how many real people visit your site, without cookies or a cookie pop-up. Adds the Privatus Analytics script to every page. Settings are in the Menu tab.",
+            "version": "1.0.0",
+            "image": "https://raw.githubusercontent.com/Privatus-Analytics/wondercms-privatus-analytics/main/preview.png"
+        }
+    }
+}
