@@ -96,6 +96,9 @@ The tag loads `pa.js` with `crossorigin="anonymous"`, so the browser sends and
 keeps no cookies for that request. The extra module scripts are loaded by the
 vendor's script, not by this plugin.
 
+A visitor who opens a missing page or a private page gets the 404 page, and
+that view is reported under the address the visitor typed, with no page content.
+
 * Terms of service: https://privatusanalytics.com/legal/terms
 * Privacy policy: https://privatusanalytics.com/legal/privacy
 
