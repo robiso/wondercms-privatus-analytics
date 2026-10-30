@@ -87,6 +87,13 @@ if (!class_exists('PrivatusAnalyticsWcms')) {
 				. ' data-modules="' . self::escape(implode(',', $modules)) . '"></script>';
 		}
 
+		/** No tag on the login page, and none for a logged-in admin unless the owner wants it. */
+		public static function skip($Wcms, array $settings): bool
+		{
+			return $Wcms->currentPage === $Wcms->get('config', 'login')
+				|| ($settings['skipLoggedIn'] && $Wcms->loggedIn);
+		}
+
 		/** The settings block shown in the Menu tab of the settings panel. */
 		public static function form($Wcms): string
 		{
@@ -157,7 +164,7 @@ if (isset($Wcms) && is_object($Wcms)) {
 	$Wcms->addListener('css', function ($args) {
 		global $Wcms;
 		$settings = PrivatusAnalyticsWcms::settings($Wcms);
-		if ($settings['skipLoggedIn'] && $Wcms->loggedIn) {
+		if (PrivatusAnalyticsWcms::skip($Wcms, $settings)) {
 			return $args;
 		}
 		$args[0] .= PrivatusAnalyticsWcms::tag($settings['siteId'], $settings['modules']);

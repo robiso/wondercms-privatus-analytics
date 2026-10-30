@@ -21,10 +21,17 @@ function check($name, $expected, $actual)
 class FakeWcms
 {
 	public $db;
+	public $loggedIn = false;
+	public $currentPage = 'home';
 
 	public function __construct($config)
 	{
 		$this->db = (object) ['config' => (object) $config];
+	}
+
+	public function get($a, $b)
+	{
+		return $this->db->{$a}->{$b} ?? null;
 	}
 
 	public function getDb()
@@ -77,6 +84,17 @@ $asObject = $P::settings(new FakeWcms(['privatusAnalytics' => (object) ['siteId'
 check('modules saved as a JSON object are read', ['engage', 'ask'], $asObject['modules']);
 $none = $P::settings(new FakeWcms(['privatusAnalytics' => (object) ['siteId' => 'pa_S', 'modules' => (object) []]]));
 check('an empty saved list stays empty', [], $none['modules']);
+
+$visitor = new FakeWcms(['login' => 'my-secret-door']);
+$on = ['skipLoggedIn' => true];
+check('visitor on a page gets the tag', false, $P::skip($visitor, $on));
+$visitor->currentPage = 'my-secret-door';
+check('visitor on the login page gets no tag', true, $P::skip($visitor, $on));
+check('login page gets no tag with skip off', true, $P::skip($visitor, ['skipLoggedIn' => false]));
+$admin = new FakeWcms(['login' => 'loginURL']);
+$admin->loggedIn = true;
+check('admin gets no tag', true, $P::skip($admin, $on));
+check('admin gets the tag with skip off', false, $P::skip($admin, ['skipLoggedIn' => false]));
 
 $form = $P::form(new FakeWcms(['privatusAnalytics' => (object) ['siteId' => 'pa_S', 'modules' => ['clicks'], 'skipLoggedIn' => true]]));
 check('form escapes the token', true, strpos($form, 'value="tok&quot;en"') !== false);
