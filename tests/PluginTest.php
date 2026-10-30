@@ -48,7 +48,7 @@ $P = 'PrivatusAnalyticsWcms';
 
 check(
 	'full tag',
-	'<script defer src="https://privatusstats.com/js/pa.js" data-site="pa_YOURSITEID" data-modules="engage,auto,vitals,clicks,ask"></script>',
+	'<script defer src="https://privatusstats.com/js/pa.js" crossorigin="anonymous" data-site="pa_YOURSITEID" data-modules="engage,auto,vitals,clicks,ask"></script>',
 	$P::tag('pa_YOURSITEID', $all)
 );
 check('empty site id prints nothing', '', $P::tag('', $all));

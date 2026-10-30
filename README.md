@@ -4,7 +4,7 @@
 
 This is the WonderCMS project's listed fork; the plugin is the author's work.
 
-**Real visitor numbers for your WonderCMS site. No cookies, no cookie pop-up, no bots.**
+**Real visitor numbers for your WonderCMS site. Bots left out, and it sets no cookies of its own.**
 
 You want to know if people visit your WonderCMS site. But Google Analytics uses
 cookies, so in many countries you must show a cookie pop-up first (the box that
@@ -13,19 +13,18 @@ up in your numbers. Bots add fake visits on top.
 
 This plugin adds the Privatus Analytics script to every page of your WonderCMS
 site. You paste your site ID once in the settings panel. Your own visits are not
-counted while you are logged in, unless you turn that off. The script sets no
-cookies and keeps no IP addresses. Bots are filtered out before they are
-counted.
+counted while you are logged in, unless you turn that off. The plugin sets no
+cookies of its own and no IP addresses are kept. Bots are filtered out before
+they are counted.
 
 So you see how many real people came, which pages they looked at and where they
 came from, on one simple dashboard. A report comes to your inbox each week, and
-you can set alerts for when traffic jumps or drops. And you don't need a cookie
-pop-up for your analytics.
+you can set alerts for when traffic jumps or drops.
 
 **Free plan, no card:** 10,000 events a month (an event is a page view or an action you track) on up to 3 sites. [Start free at privatusanalytics.com](https://privatusanalytics.com).
 
-- **No cookies.** No cookies and no hidden IDs on your visitors' devices, and no IP
-  addresses are kept. Laws differ by country, so check your own legal advice.
+- **Sets no cookies of its own.** No IP addresses are kept. Laws differ by
+  country, so check your own legal advice.
 - **Real people, not bots.** Known bots, data centers and spam visits are left
   out on every plan.
 - **Small and fast.** The script is about 3 KB when compressed.
@@ -80,7 +79,7 @@ The five extra tracking boxes are unticked until you tick them. With all five
 ticked, the plugin adds this to the `<head>` of each page:
 
 ```html
-<script defer src="https://privatusstats.com/js/pa.js" data-site="pa_YOURSITEID" data-modules="engage,auto,vitals,clicks,ask"></script>
+<script defer src="https://privatusstats.com/js/pa.js" crossorigin="anonymous" data-site="pa_YOURSITEID" data-modules="engage,auto,vitals,clicks,ask"></script>
 ```
 
 ## External service
@@ -92,6 +91,10 @@ screen width, the time zone name and event names to
 `https://privatusstats.com/api/event`. The visitor's IP address is read in
 memory to work out a rough country and to count unique visits, and it is not
 stored.
+
+The tag loads `pa.js` with `crossorigin="anonymous"`, so the browser sends and
+keeps no cookies for that request. The extra module scripts are loaded by the
+vendor's script, not by this plugin.
 
 * Terms of service: https://privatusanalytics.com/legal/terms
 * Privacy policy: https://privatusanalytics.com/legal/privacy

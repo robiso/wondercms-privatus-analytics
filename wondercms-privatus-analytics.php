@@ -3,7 +3,7 @@
 /**
  * Privatus Analytics for WonderCMS.
  *
- * Adds the cookieless Privatus Analytics tracking script to the <head> of every
+ * Adds the Privatus Analytics tracking script to the <head> of every
  * page. It only prints a script tag and never sends data from the server.
  * Settings live in the Menu tab of the WonderCMS settings panel.
  */
@@ -82,7 +82,7 @@ if (!class_exists('PrivatusAnalyticsWcms')) {
 			}
 			$modules = array_values(array_intersect(array_keys(self::MODULES), $modules));
 
-			return '<script defer src="' . self::SCRIPT_URL . '"'
+			return '<script defer src="' . self::SCRIPT_URL . '" crossorigin="anonymous"'
 				. ' data-site="' . self::escape($siteId) . '"'
 				. ' data-modules="' . self::escape(implode(',', $modules)) . '"></script>';
 		}
@@ -94,7 +94,7 @@ if (!class_exists('PrivatusAnalyticsWcms')) {
 
 			$html = '<p class="subTitle">Privatus Analytics</p>';
 			$html .= '<div class="change"><form action="' . self::escape(self::currentUrl($Wcms)) . '" method="post">';
-			$html .= '<p>See how many real people visit your site, without cookies. Paste your site ID from '
+			$html .= '<p>See how many real people visit your site. The plugin sets no cookies of its own. Paste your site ID from '
 				. '<a href="https://privatusanalytics.com" target="_blank" rel="noopener">privatusanalytics.com</a>. '
 				. 'It starts with pa_ and you find it under Site settings, Tracking.</p>';
 			$html .= '<div class="form-group" style="margin-bottom:10px"><input type="text" class="wform-control" name="privatusAnalyticsSiteId" placeholder="pa_YOURSITEID" pattern="pa_[A-Za-z0-9]+" value="' . self::escape($settings['siteId']) . '"></div>';
