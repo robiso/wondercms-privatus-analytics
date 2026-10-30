@@ -41,7 +41,7 @@ if (!class_exists('PrivatusAnalyticsWcms')) {
 				// WonderCMS saves lists as JSON objects, so a list can come back as an object.
 				'modules' => isset($saved['modules']) && (is_array($saved['modules']) || is_object($saved['modules']))
 					? array_values(array_filter((array) $saved['modules'], 'is_string'))
-					: array_keys(self::MODULES),
+					: [],
 				'skipLoggedIn' => isset($saved['skipLoggedIn']) ? (bool) $saved['skipLoggedIn'] : true,
 			];
 		}

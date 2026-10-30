@@ -72,8 +72,8 @@ Until you save a valid site ID, the plugin adds nothing to your pages.
 | **Short surveys on your site** | Loads the `ask` module. |
 | **Don't count my own visits while I am logged in** | On by default. When you are logged in, you get no script. |
 
-All five extra tracking boxes are ticked until you save. The plugin then adds
-this to the `<head>` of each page:
+The five extra tracking boxes are unticked until you tick them. With all five
+ticked, the plugin adds this to the `<head>` of each page:
 
 ```html
 <script defer src="https://privatusstats.com/js/pa.js" data-site="pa_YOURSITEID" data-modules="engage,auto,vitals,clicks,ask"></script>

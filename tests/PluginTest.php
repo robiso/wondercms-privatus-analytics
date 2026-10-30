@@ -67,7 +67,7 @@ check('post ignores a modules string', [], $P::fromPost(['privatusAnalyticsModul
 
 $fresh = $P::settings(new FakeWcms(['siteTitle' => 'x']));
 check('defaults: no site id', '', $fresh['siteId']);
-check('defaults: every module', $all, $fresh['modules']);
+check('defaults: no extra modules', [], $fresh['modules']);
 check('defaults: skip logged in', true, $fresh['skipLoggedIn']);
 
 $stored = $P::settings(new FakeWcms(['privatusAnalytics' => (object) ['siteId' => 'pa_S', 'modules' => ['clicks'], 'skipLoggedIn' => false]]));
