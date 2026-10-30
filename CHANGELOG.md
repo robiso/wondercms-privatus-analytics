@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.2 - 2026-10-30
+
+- The script loads with crossorigin="anonymous", so the browser sends and keeps no cookies for it.
+- No tag on the login page.
+- README: the plugin sets no cookies of its own; how a 404 or private page view is reported.
+
 ## 1.0.1 - 2026-10-30
 
 - The extra tracker modules are unticked until the owner ticks them.
