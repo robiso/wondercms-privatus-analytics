@@ -1,4 +1,8 @@
 # Privatus Analytics for WonderCMS
+### Author: Privatus Analytics (ja-andrews)
+(https://github.com/Privatus-Analytics/wondercms-privatus-analytics)
+
+This is the WonderCMS project's listed fork; the plugin is the author's work.
 
 **Real visitor numbers for your WonderCMS site. No cookies, no cookie pop-up, no bots.**
 
@@ -28,7 +32,7 @@ pop-up for your analytics.
 
 ## Requirements
 
-- WonderCMS 3.4 or later (tested on 3.4.3 and 3.6.0).
+- WonderCMS 3.4 or later (tested on 3.4.3, 3.6.0 and 3.7.0).
 - A theme that prints `<?= $Wcms->css() ?>` inside `<head>`. All standard themes do.
 - A Privatus Analytics site ID. It starts with `pa_`. You find it in Privatus
   Analytics under Site settings, Tracking.
@@ -44,11 +48,11 @@ If it is not in the list yet, paste this address into the custom module box at
 the bottom of the Plugins tab, then install it:
 
 ```text
-https://raw.githubusercontent.com/Privatus-Analytics/wondercms-privatus-analytics/main/wcms-modules.json
+https://raw.githubusercontent.com/robiso/wondercms-privatus-analytics/main/wcms-modules.json
 ```
 
 By hand: download the
-[main branch zip](https://github.com/Privatus-Analytics/wondercms-privatus-analytics/archive/main.zip),
+[main branch zip](https://github.com/robiso/wondercms-privatus-analytics/archive/main.zip),
 unzip it into `plugins/` and rename the folder to `wondercms-privatus-analytics`.
 
 ## Setup

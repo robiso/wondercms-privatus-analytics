@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.1 - 2026-10-30
+
+- The extra tracker modules are unticked until the owner ticks them.
+- Listed from the WonderCMS fork robiso/wondercms-privatus-analytics.
+
 ## 1.0.0 - 2026-10-28
 
 - Initial release.
